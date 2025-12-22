@@ -3,6 +3,9 @@ from pathlib import Path
 from pandas import DataFrame
 
 
+
+#task 5 
+
 #reading the csv with some enforcing 
 
 def read_orders_csv(path)-> DataFrame :
@@ -10,6 +13,7 @@ def read_orders_csv(path)-> DataFrame :
         path,
         na_values=["","na","N/A", "null", "None"],
         dtype={"order_id" : "string" , "user_id" : "string"},
+        keep_default_na=True,
     )
     return df 
 
@@ -18,6 +22,7 @@ def read_users_csv(path) -> DataFrame:
         path,
         dtype={"user_id" : "string" , "country" : "string"},
         na_values=["","na","N/A", "null", "None"],
+        keep_default_na=True,
 
     )
     return df 
