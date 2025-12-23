@@ -14,16 +14,20 @@ def enforce_schema(df) -> DataFrame:
 
      
 def missingness_report(df) -> DataFrame:
-    num_row=len(df)
-    num_miss=df.isna().sum() #this will check each row in the df and every null will be true then sum will take this true as 1 and sum the number
-    prec_miss=num_miss/num_row
+    num_rows = len(df)
+
+    n_missing = df.isna().sum()          # missing count per column
+    p_missing = n_missing / num_rows     # percentage per column
 
     report = pd.DataFrame({
-    "n_missing": num_row,
-    "p_missing": num_miss
-})
+        "n_missing": n_missing,
+        "p_missing": p_missing,
+    })
 
-    report = report.sort_values("p_missing", ascending=False)
+    return report.sort_values("p_missing", ascending=False)
+
+
+
 
 def add_missing_flags(df, cols) -> DataFrame:
     d_copy=df.copy() #its best practice to make a copy the orginal data so we make sure it will not chsnge
@@ -33,8 +37,10 @@ def add_missing_flags(df, cols) -> DataFrame:
 
 
 def normalize_text(s: Series) -> Series:
-    return(
-        s.astype("String").str.strip().str.casefold()
+    return (
+        s.astype("string")#this function transform any type the column[s] have into StringDtype : “astype("string") forces the column into a safe, consistent text type that pandas understands.”
+         .str.strip()     #even the null will be converted to <NA> Whitch is importent when cleaning
+         .str.casefold()
     )
 
 def apply_mapping(s: Series, mapping) -> Series:
@@ -44,9 +50,9 @@ def apply_mapping(s: Series, mapping) -> Series:
 
 def dedupe_keep_latest(df: DataFrame, key_cols: list[str], ts_col: str) -> DataFrame:
     return (
-        df.sort_values(ts_col)#this sort the values based on time 
+        df.sort_values(ts_col)#this sort the values based on time {dec}
           .drop_duplicates(subset=key_cols, keep="last")#this deelete the dublicat in aa spesific row and keeps only the last dup
-          .reset_index(drop=True)
+          .reset_index(drop=True)#this mean after we droped the dup rows reset the index make it 12345... agine 
     )
 
 
