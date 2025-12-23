@@ -42,5 +42,14 @@ def apply_mapping(s: Series, mapping) -> Series:
 
 
 
+def dedupe_keep_latest(df: DataFrame, key_cols: list[str], ts_col: str) -> DataFrame:
+    return (
+        df.sort_values(ts_col)#this sort the values based on time 
+          .drop_duplicates(subset=key_cols, keep="last")#this deelete the dublicat in aa spesific row and keeps only the last dup
+          .reset_index(drop=True)
+    )
+
+
+
 
 
