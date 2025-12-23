@@ -1,5 +1,6 @@
 import pandas as pd 
-from pandas import DataFrame
+from pandas import DataFrame 
+from pandas import Series
 
 def enforce_schema(df) -> DataFrame:
     #we put assign to overwrite 
@@ -31,6 +32,13 @@ def add_missing_flags(df, cols) -> DataFrame:
     return d_copy
 
 
+def normalize_text(s: Series) -> Series:
+    return(
+        s.astype("String").str.strip().str.casefold()
+    )
+
+def apply_mapping(s: Series, mapping) -> Series:
+    return s.map(lambda x : mapping.get(x,x)) 
 
 
 
