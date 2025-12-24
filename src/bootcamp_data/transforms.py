@@ -74,7 +74,30 @@ def add_time_parts(df, ts_col):
         hour=ts.dt.hour,
 
     )
+
+
+#---------------------------------------Outilers Helper T2 ------------------------------------
+#Finding the data bounds 
+def iqr_bounds(s, k=1.5):
+    s = pd.to_numeric(s, errors="coerce").dropna()
+    Q1 = s.quantile(0.25)
+    Q3 = s.quantile(0.75)
+    IQR=Q3-Q1 
+    Lower_limt=float(Q1-k*IQR)
+    Upper_limt=float(Q3+k*IQR)
+    return Lower_limt , Upper_limt
+
+#Flaging outliers
+
+def winsorize(s, lo=0.01, hi=0.99):
+    s = pd.to_numeric(s, errors="coerce")
+    L_limt=s.quantile(lo)
+    U_Limit=s.quantile(hi)
+    return s.clip(lower = L_limt , upper = U_Limit)#every value that is less the L_Limt will be changed to L_Limt
     
+
+    
+
 
 
 
