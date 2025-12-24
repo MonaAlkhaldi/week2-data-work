@@ -56,6 +56,29 @@ def dedupe_keep_latest(df: DataFrame, key_cols: list[str], ts_col: str) -> DataF
     )
 
 
+#---------------------------------D3Task---------------------------------------------------------------
+#converting a column to datetime type 
+def parse_datetime(df, col, utc=True):
+    
+    dt = pd.to_datetime(df[col] , errors="coerce" , utc=True)
+    return df.assign(**{col : dt}) #** mean that we expect a keyword pass  --> col = "name"
+
+def add_time_parts(df, ts_col):
+    ts = df[ts_col]
+#the dt allows pandas to accses the datetime function similer to when we put str befoer the string function when we norm
+    return df.assign(
+        data = ts.dt.date,
+        year=ts.dt.year,
+        month = ts.dt.to_period("M").astype("string"),#astype : becoude to_perioud return a Period type and the files we use want string
+        day=ts.dt.day_name(),
+        hour=ts.dt.hour,
+
+    )
+    
+
+
+
+
 
 
 
