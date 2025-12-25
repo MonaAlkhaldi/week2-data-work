@@ -1,0 +1,16 @@
+{
+  "rows_orders_clean": 15,
+  "rows_users": 14,
+  "rows_analytics": 15,
+  "missing_created_at": 2,
+  "country_match_rate": 1.0,
+  "config": {
+    "root": "C:\\Users\\Mona\\OneDrive\\Desktop\\week2-data-work",
+    "raw_orders": "C:\\Users\\Mona\\OneDrive\\Desktop\\week2-data-work\\data\\raw\\orders.csv",
+    "raw_users": "C:\\Users\\Mona\\OneDrive\\Desktop\\week2-data-work\\data\\raw\\users.csv",
+    "out_orders_clean": "C:\\Users\\Mona\\OneDrive\\Desktop\\week2-data-work\\data\\processed\\orders_clean.parquet",
+    "out_users": "C:\\Users\\Mona\\OneDrive\\Desktop\\week2-data-work\\data\\processed\\users.parquet",
+    "out_analytics": "C:\\Users\\Mona\\OneDrive\\Desktop\\week2-data-work\\data\\processed\\analytics_table.parquet",
+    "run_meta": "C:\\Users\\Mona\\OneDrive\\Desktop\\week2-data-work\\data\\processed\\_run_meta.json"
+  }
+}

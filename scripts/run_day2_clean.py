@@ -6,13 +6,15 @@ from pathlib import Path
 import pandas as pd
     
 
-ROOT=Path(__file__).resolve().parents[1]
-paths=make_paths(ROOT)
+
+paths = make_paths()
+
 
 #read the files
 r_order = read_orders_csv(paths.raw / "orders.csv")
 r_users = read_users_csv(paths.raw /"users.csv")
-
+print(r_order.head(5))
+print("-------------------------------------------------------------------------------")
 #-----------check requiermint-----------------
 require_columns(r_order , ["order_id" , "user_id" ,"amount" , "quantity" , "status"])
 require_columns(r_users , [ "user_id" ,"country" , "signup_date"])
@@ -24,7 +26,8 @@ assert_non_empty(r_order)
 order_df_enforce = enforce_schema(r_order)
 #print(order_df_enforce.head())
 
-  
+print(order_df_enforce.head(5))
+print("-------------------------------------------------------------------------------")
 
 #-----------------misiing repo[order]
 report_order = missingness_report(order_df_enforce)#this will return a df so I will convert it to csv for the report 
@@ -38,12 +41,13 @@ report_order.to_csv(rep_path, index=True)
 #the function takes a series so when we do this order_df_enforce["status"] we are giveing a serise from the df a series is a one dim list
 order_df_enforce["status_clean"]=normalize_text(order_df_enforce["status"]) #Herer i overwrite the data with the normlized one so now its normailzed 
 #print(order_df_enforce.head())
-
+print(order_df_enforce.head(5))
+print("-------------------------------------------------------------------------------")
 
 #------------------adding a coulmn flag 
 order_df_enforce=add_missing_flags(order_df_enforce , ["amount" , "quantity"])
-print(order_df_enforce.head())
-
+print(order_df_enforce.head(5))
+print("-------------------------------------------------------------------------------")
 
 #-------Writing the orders_clean.parquet
 write_parquet(order_df_enforce , paths.processed / "orders_clean.parquet")

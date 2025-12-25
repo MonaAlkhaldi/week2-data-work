@@ -6,8 +6,9 @@ from bootcamp_data.joins import safe_left_join
 from pathlib import Path
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parents[1]
-paths=make_paths(ROOT)
+
+
+paths = make_paths()
 
 #read the files
 
@@ -90,6 +91,4 @@ summary = (
 )
 print(summary)
 
-dfat=pd.read_parquet('data/processed/analytics_table.parquet')
-print("the print \n")
-print(len(dfat))
+
