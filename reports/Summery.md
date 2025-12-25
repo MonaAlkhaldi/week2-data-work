@@ -4,23 +4,23 @@
 ### For Q1 : 
 - **Daily revenue increased steadily** from approximately **20.5 SAR on December 1st to 50 SAR by December 6th**, followed by a **sharp spike to 189 SAR on December 7th**, likely driven by a large or outlier order. Revenue then dropped to **0 SAR on December 8th**, suggesting missing or incomplete data.
 
-![Daily Revenue Over Time](reports/figures/total_amount_change_daily.png)
+![Daily Revenue](figures/total_amount_change_daily.png)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### For Q2
-- **Average order value varies significantly by country**.  The **UK** shows the highest average order amount (~**135 SAR**), while **Saudi Arabia (SA)** has the highest number of orders (**7**) but a lower average spend (~**42 SAR**), indicating more frequent but lower-value purchases.
+- **Average order value varies significantly by country**.  The **UK** shows the highest average order amount 135 SAR, while **Saudi Arabia (SA)** has the highest number of orders 7 but a lower average spend 42 SAR, indicating more frequent but lower-value purchases.
 - **Problematic orders (refunded or missing data) differ by country**, with high rates in **AE (~67%)** and **UK (~50%)**, a moderate rate in **SA (~43%)**, and zero reported issues in **US and EG**, likely due to small sample sizes.
 
 
-![Daily Revenue Over Time](reports/figures/revenue_by_country.png)
+![Daily Revenue Over Time](figures/revenue_by_country.png)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### For Q3 
 - **Problem order rates vary by country** with AE and UK showing the highest levels, SA at a moderate level, and US and EG showing zero issues likely due to small sample sizes. These data quality issues may affect the reliability of downstream analysis and should be addressed.
 
-![Daily Revenue Over Time](reports/figures/problem_order_rate_heatmap.png)
+![Daily Revenue Over Time](figures/problem_order_rate_heatmap.png)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 
