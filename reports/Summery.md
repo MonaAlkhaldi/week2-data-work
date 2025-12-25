@@ -4,7 +4,7 @@
 ### For Q1 : 
 - **Daily revenue increased steadily** from approximately **20.5 SAR on December 1st to 50 SAR by December 6th**, followed by a **sharp spike to 189 SAR on December 7th**, likely driven by a large or outlier order. Revenue then dropped to **0 SAR on December 8th**, suggesting missing or incomplete data.
 
-![Daily Revenue](figures/total_amount_change_daily.png)
+![Daily Revenue](figures/Total_amo_change_daily.png)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 
