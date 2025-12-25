@@ -89,3 +89,7 @@ summary = (
           .reset_index().sort_values("revenue", ascending=False)
 )
 print(summary)
+
+dfat=pd.read_parquet('data/processed/analytics_table.parquet')
+print("the print \n")
+print(len(dfat))
