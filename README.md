@@ -6,6 +6,10 @@
 - .venv\Scripts\activate
 - pip install -r requirements.txt
 
+  **IMPORTANT** Before you run anything
+- Before you run, make sure you are in **week2-data-work**
+- And make sure you put **$env:PYTHONPATH="src"** in PowerShell
+
 ---
 
 ## USE THIS ONLY IF YOU FACED THIS PROBLEM:
@@ -36,3 +40,4 @@
 
 ## EDA
 Open notebooks/eda.ipynb and run all cells.
+
